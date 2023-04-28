@@ -3,11 +3,11 @@
  * @return {number[]}
  */
 var runningSum = function (nums) {
-  let index = 1;
-  let addedValue = nums[0];
-  for (index; index < nums.length; index++) {
-    addedValue += nums[index];
-    nums[index] = addedValue;
-  }
-  return nums;
+  let res = [];
+  res.push(nums[0]);
+  nums.reduce((acc, curr) => {
+    res.push(acc + curr);
+    return acc + curr;
+  });
+  return res;
 };
